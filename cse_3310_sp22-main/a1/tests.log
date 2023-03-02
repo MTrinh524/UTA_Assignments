@@ -1,0 +1,48 @@
+11:15:16.535 [main] DEBUG Assignment1Test -  in the royal flush test
+11:15:16.710 [main] DEBUG Assignment1Test -  in the full house test
+11:15:16.731 [main] DEBUG Assignment1Test -  in the both flushes are equal test
+11:15:16.739 [main] DEBUG Assignment1Test -  in the both hands have two-pair test -- 2 queens is better
+11:15:16.761 [main] DEBUG Assignment1Test -  in the pair test
+11:15:16.765 [main] DEBUG Assignment1Test -  in the flush test
+11:15:16.778 [main] DEBUG Assignment1Test -  in the 4 of a kind test
+11:15:16.781 [main] DEBUG Assignment1Test -  in the both hands have 4 of a kind test -- four 5s is better
+11:20:38.282 [main] DEBUG Assignment1Test -  in the royal flush test
+11:20:38.490 [main] DEBUG Assignment1Test -  in the full house test
+11:20:38.519 [main] DEBUG Assignment1Test -  in the both flushes are equal test
+11:20:38.530 [main] DEBUG Assignment1Test -  in the both hands have two-pair test -- 2 queens is better
+11:20:38.541 [main] DEBUG Assignment1Test -  in the pair test
+11:20:38.549 [main] DEBUG Assignment1Test -  in the flush test
+11:20:38.566 [main] DEBUG Assignment1Test -  in the 4 of a kind test
+11:20:38.574 [main] DEBUG Assignment1Test -  in the both hands have 4 of a kind test -- four 5s is better
+11:35:56.302 [main] DEBUG Assignment1Test -  in the royal flush test
+11:35:56.375 [main] DEBUG Assignment1Test -  in the full house test
+11:35:56.387 [main] DEBUG Assignment1Test -  in the both flushes are equal test
+11:35:56.393 [main] DEBUG Assignment1Test -  in the both hands have two-pair test -- 2 queens is better
+11:35:56.398 [main] DEBUG Assignment1Test -  in the pair test
+11:35:56.400 [main] DEBUG Assignment1Test -  in the flush test
+11:35:56.406 [main] DEBUG Assignment1Test -  in the 4 of a kind test
+11:35:56.413 [main] DEBUG Assignment1Test -  in the both hands have 4 of a kind test -- four 5s is better
+11:37:02.317 [main] DEBUG Assignment1Test -  in the royal flush test
+11:37:02.399 [main] DEBUG Assignment1Test -  in the full house test
+11:37:02.412 [main] DEBUG Assignment1Test -  in the both flushes are equal test
+11:37:02.417 [main] DEBUG Assignment1Test -  in the both hands have two-pair test -- 2 queens is better
+11:37:02.421 [main] DEBUG Assignment1Test -  in the pair test
+11:37:02.424 [main] DEBUG Assignment1Test -  in the flush test
+11:37:02.433 [main] DEBUG Assignment1Test -  in the 4 of a kind test
+11:37:02.437 [main] DEBUG Assignment1Test -  in the both hands have 4 of a kind test -- four 5s is better
+20:03:19.043 [main] DEBUG Assignment1Test -  in the royal flush test
+20:03:19.130 [main] DEBUG Assignment1Test -  in the full house test
+20:03:19.143 [main] DEBUG Assignment1Test -  in the both flushes are equal test
+20:03:19.149 [main] DEBUG Assignment1Test -  in the both hands have two-pair test -- 2 queens is better
+20:03:19.152 [main] DEBUG Assignment1Test -  in the pair test
+20:03:19.156 [main] DEBUG Assignment1Test -  in the flush test
+20:03:19.163 [main] DEBUG Assignment1Test -  in the 4 of a kind test
+20:03:19.168 [main] DEBUG Assignment1Test -  in the both hands have 4 of a kind test -- four 5s is better
+19:46:07.630 [main] DEBUG Assignment1Test -  in the royal flush test
+19:46:07.725 [main] DEBUG Assignment1Test -  in the full house test
+19:46:07.733 [main] DEBUG Assignment1Test -  in the both flushes are equal test
+19:46:07.739 [main] DEBUG Assignment1Test -  in the both hands have two-pair test -- 2 queens is better
+19:46:07.745 [main] DEBUG Assignment1Test -  in the pair test
+19:46:07.747 [main] DEBUG Assignment1Test -  in the flush test
+19:46:07.752 [main] DEBUG Assignment1Test -  in the 4 of a kind test
+19:46:07.763 [main] DEBUG Assignment1Test -  in the both hands have 4 of a kind test -- four 5s is better
