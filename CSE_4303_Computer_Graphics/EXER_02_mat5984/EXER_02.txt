@@ -1,0 +1,212 @@
+#-----------------------------------------------------------------
+Exercise 02
+
+#-----------------------------------------------------------------
+Purpose:
+
+  * Demonstrate working C development environment.
+
+  * Demonstrate ability to write some simple C functions
+      representing basic transformation operations.
+
+#-----------------------------------------------------------------
+Background:
+
+  * All the math you need in outlined in the Basic Transformations
+      handout on Canvas.
+
+#-----------------------------------------------------------------
+Tasks:
+
+  1. Download exer_02_dalioba.zip from Canvas.
+
+  2. Unzip this file somewhere convenient.
+
+  3. Change 'dalioba' in the name of the directory to YOUR NetID.
+     (Your NetID is three letters followed by four or five digits.
+      The directory name will now be something like
+      'exer_02_abc1234' but with YOUR NetID in place of
+      'abc1234'.)
+
+  4. Look in that directory.  There's a Template directory that
+     has some files in it.  Move them up one level into the
+     'exer_02_abc1234' directory.
+
+  5. Change the header lines in the file transforms.c.
+
+      -- Line 1:  Family name first, then a comma, then
+                  personal name.
+
+      -- Line 2:  Your NetID.
+
+      -- Line 3:  The date you edited the file, in the format
+                  YYYY-MM-DD (all digits!).
+
+  6. Compile thusly,
+
+    $ make
+    gcc -g -Wall -Wextra -fsanitize=address -c matrix.c
+    gcc -g -Wall -Wextra -fsanitize=address -c matrixTest.c
+    gcc -fsanitize=address -o matrixTest matrix.o matrixTest.o -lm
+    gcc -g -Wall -Wextra -fsanitize=address -c transforms.c
+    transforms.c: In function ‘rotateYMatrix’:
+    transforms.c:24:35: warning: unused parameter ‘theta’ [-Wunused-parameter]
+     void rotateYMatrix( const FLOAT64 theta, Matrix xform )
+                                       ^~~~~
+    transforms.c:24:49: warning: unused parameter ‘xform’ [-Wunused-parameter]
+     void rotateYMatrix( const FLOAT64 theta, Matrix xform )
+                                                     ^~~~~
+    transforms.c: In function ‘rotateZMatrix’:
+    transforms.c:30:35: warning: unused parameter ‘theta’ [-Wunused-parameter]
+     void rotateZMatrix( const FLOAT64 theta, Matrix xform )
+                                       ^~~~~
+    transforms.c:30:49: warning: unused parameter ‘xform’ [-Wunused-parameter]
+     void rotateZMatrix( const FLOAT64 theta, Matrix xform )
+                                                     ^~~~~
+    .
+    .
+    .
+    $
+
+  7. I've edited the output here for length.  You get all those
+      warnings because you haven't yet written the bodies of some
+      of the transforms.c routines.
+
+  8. Now edit transforms.c and put the proper code in each of the
+      bodies of the unwritten operations.  (There are TODO
+      comments describing what needs to be done and a couple of
+      the transforms are already completed to give you some
+      hints on how to do the rest.)
+
+  9. After you're done with that, remake and now run thusly,
+
+    $ make clean
+    rm -f matrixTest transformsTest *.o
+    $ make
+    gcc -g -Wall -Wextra -fsanitize=address -c matrix.c
+    gcc -g -Wall -Wextra -fsanitize=address -c matrixTest.c
+    gcc -fsanitize=address -o matrixTest matrix.o matrixTest.o -lm
+    gcc -g -Wall -Wextra -fsanitize=address -c transforms.c
+    gcc -g -Wall -Wextra -fsanitize=address -c transformsTest.c
+    gcc -fsanitize=address -o transformsTest matrix.o transforms.o transformsTest.o -lm
+    $ ./transformsTest
+    //-----------------------------------------------------------------
+    //-- pZero ------------------
+                   0
+                   0
+                   0
+                   1
+    //-- pHalf ------------------
+                 0.5
+                 0.5
+                 0.5
+                   1
+    //-- pX ---------------------
+                   1
+                   0
+                   0
+                   1
+
+    //-- pXY --------------------
+                   1
+                   1
+                   0
+                   1
+
+    //-- pXZ --------------------
+                   1
+                   0
+                   1
+                   1
+
+    .
+    .
+    .
+
+    //-- composite·pYZ --------------
+            -4861.14
+             45361.6
+             42770.9
+                   1
+
+    //-- composite·pZ ---------------
+            -4552.58
+             42482.2
+             40058.1
+                   1
+
+    //-- composite·pXYZ -------------
+            -5063.72
+             47257.6
+             44562.6
+                   1
+
+    //-----------------------------------------------------------------
+    $
+
+ 10. I've edited the output here for length.  The complete results
+      are shown in the file Results/transformsTest-results.txt.
+      Your results should match EXACTLY.  If they don't, STOP
+      RIGHT HERE and figure out what's wrong.  If this doesn't
+      work perfectly, there's no point going any further.
+
+#-----------------------------------------------------------------
+Hints:
+  1. Ensure your programs compile and runs correctly.  You should
+     not get ANY warnings or errors when you compile.  ALWAYS
+     compile your code with -Wall and -Wextra and deal with ANY
+     warnings or errors that are identified.  I have temporarily
+     removed the -fsanitize=address flag while I confirm fixes
+     for MacOS and Raspian.  We'll resume using address and leak
+     sanitization as soon as those platforms are working properly.
+
+     Ensure your test results match those given in the Results/
+     subdirectory.  Not matching EXACTLY means you are not
+     performing the matrix and/or transform operations correctly.
+
+     ('EXACTLY' means character-by-character the same in the
+      output.  No differences in values.  Use diff to ensure that
+      your output really does match EXACTLY.)
+
+  2. Ensure that you update the three header lines in the source
+     file with YOUR name (family name first, then a comma, then
+     your personal name), YOUR NetID, and the date you edit the
+     file, in the format YYYY-MM-DD (all digits!).
+
+  3. This is not a large exercise.  There are only seven (7)
+      function bodies that have to be written.  They are all in
+      transforms.c and are marked with TODO comments.
+
+        transforms.c:26:  // TODO : Compute the Y rotation matrix from theta, putting the
+        transforms.c:32:  // TODO : Compute the Z rotation matrix from theta, putting the
+        transforms.c:39:  // TODO : Construct the scaling matrix from sx, sy, and sz,
+        transforms.c:54:  // TODO : Construct the Y shearing matrix from hyz and hyz,
+        transforms.c:60:  // TODO : Construct the Z shearing matrix from hzx and hzy,
+        transforms.c:66:  // TODO : Construct the complete shearing matrix from hxy, hxz,
+        transforms.c:74:  // TODO : Construct the translation matrix from tx, ty, and tz,
+
+      In the reference solution, the TODO code in the bodies of
+      these functions are only
+
+        rotateYMatrix()    --> 7 lines of code
+        rotateYMatrix()    --> 7 lines of code
+        scaleMatrix()      --> 4 lines of code
+        shearYMatrix()     --> 3 lines of code
+        shearZMatrix()     --> 3 lines of code
+        shearMatrix()      --> 7 lines of code
+        translateMatrix()  --> 4 lines of code
+
+      for a grand total of 35 lines of code.  Easy!
+
+      Use the routines that have already been written as examples
+      of how to do it.  (All of the transforms are a copying of I4
+      to the result matrix and then a filling in of the correct
+      other entries.)
+
+      Depending on how you format your code, you might have more
+      or fewer lines of code than this.  Do get super-concerned
+      unless you find yourseld writing zillions of lines of code.
+      If that's the case, you're probably off in the weeds.  Step
+      back and think about it a bit more.
+
+#-----------------------------------------------------------------

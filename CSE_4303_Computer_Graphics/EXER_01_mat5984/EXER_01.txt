@@ -1,0 +1,164 @@
+#-----------------------------------------------------------------
+Exercise 01
+
+#-----------------------------------------------------------------
+Purpose:
+
+  * Demonstrate working C development environment.
+
+  * Demonstrate ability to write some simple C functions
+      representing basic matrix operations.
+
+#-----------------------------------------------------------------
+Background:
+
+  * All the math you need in outlined in the Math Fundamentals
+      handout on Canvas.
+
+#-----------------------------------------------------------------
+Tasks:
+
+  1. Download exer_01_dalioba.zip from Canvas.
+
+  2. Unzip this file somewhere convenient.
+
+  3. Change 'dalioba' in the name of the directory to YOUR NetID.
+     (Your NetID is three letters followed by four or five digits.
+      The directory name will now be something like
+      'exer_01_abc1234' but with YOUR NetID in place of
+      'abc1234'.)
+
+  4. Look in that directory.  There's a Template directory that
+     has some files in it.  Move them up one level into the
+     'exer_01_abc1234' directory.
+
+  5. Change the header lines in the file matrix.c.
+
+      -- Line 1:  Family name first, then a comma, then
+                  personal name.
+
+      -- Line 2:  Your NetID.
+
+      -- Line 3:  The date you edited the file, in the format
+                  YYYY-MM-DD (all digits!).
+
+  6. Compile thusly,
+
+    $ make
+    gcc -g -Wall -Wextra -fsanitize=address -c matrix.c
+    matrix.c: In function ‘matrixMultMatrix’:
+    matrix.c:46:37: warning: unused parameter ‘a’ [-Wunused-parameter]
+     void matrixMultMatrix( const Matrix a, const Matrix b, Matrix c )
+                                         ^
+    matrix.c:46:53: warning: unused parameter ‘b’ [-Wunused-parameter]
+     void matrixMultMatrix( const Matrix a, const Matrix b, Matrix c )
+                                                         ^
+    matrix.c:46:63: warning: unused parameter ‘c’ [-Wunused-parameter]
+     void matrixMultMatrix( const Matrix a, const Matrix b, Matrix c )
+                                                                   ^
+    matrix.c: In function ‘matrixMultPoint’:
+    matrix.c:57:36: warning: unused parameter ‘a’ [-Wunused-parameter]
+     void matrixMultPoint( const Matrix a, const Point b, Point c )
+                                        ^
+    .
+    .
+    .
+    $
+
+  7. I've edited the output here for length.  You get all those
+      warnings because you haven't yet written the bodies of some
+      of the matrix.c routines.
+
+  8. Now edit matrix.c and put the proper code in each of the
+      bodies of the unwritten operations.  (There are TODO
+      comments describing what needs to be done.)
+
+  9. After you're done with that, remake and now run thusly,
+
+    $ make clean
+    rm -f matrixTest *.o
+    $ make
+    gcc -g -Wall -Wextra -fsanitize=address -c matrix.c
+    gcc -g -Wall -Wextra -fsanitize=address -c matrixTest.c
+    gcc -fsanitize=address -o matrixTest matrix.o matrixTest.o -lm
+    $ ./matrixTest
+    //-----------------------------------------------------------------
+    //-- p ----------
+                   2
+                   7
+                   1
+                   8
+
+    //-- 3 · p ------
+                   6
+                  21
+                   3
+                  24
+
+    .
+    .
+    .
+
+    //-- m · m ------
+                  43               31               43               44
+                 124              134              102               93
+                 127              103              123               87
+                 134              120              122              132
+
+    //-----------------------------------------------------------------
+    $
+
+ 10. I've edited the output here for length.  The complete results
+      are shown in the file Results/matrixTestResults.txt.
+      Your results should match EXACTLY.  If they don't, STOP
+      RIGHT HERE and figure out what's wrong.  If this doesn't
+      work perfectly, there's no point going any further.
+
+#-----------------------------------------------------------------
+Hints:
+  1. Ensure your program compiles and runs correctly.  You should
+     not get ANY warnings or errors when you compile.  ALWAYS
+     compile your code with -Wall and -Wextra and deal with ANY
+     warnings or errors that are identified.  ALWAYS compile your
+     code with -fsanitize=address and deal with ANY warnings or
+     errors reported.
+
+     Ensure your test results match those given in the Results/
+     subdirectory.  Not matching EXACTLY means you are not
+     performing the matrix operations correctly.
+
+     ('EXACTLY' means character-by-character the same in the
+      output.  No differences in values.  Use diff to ensure that
+      your output really does match EXACTLY.)
+
+  2. Ensure that you update the three header lines in the source
+     file with YOUR name (family name first, then a comma, then
+     your personal name), YOUR NetID, and the date you edit the
+     file, in the format YYYY-MM-DD (all digits!).
+
+  3. This is not a large exercise.  There are only four (4)
+      function bodies that have to be written.  They are all in
+      matrix.c and are marked with TODO comments.
+
+        matrix.c:50:  // TODO: Compute c[row][col] as the sum of four multiplies,
+        matrix.c:60:  // TODO: Compute c[row] as the sum of four multiplies, each
+        matrix.c:72:  // TODO: Compute *bp++ as the product of s and *ap++.
+        matrix.c:79:  // TODO: Compute each of b[0] through b[3] using the scalar s
+
+      In the reference solution, the TODO code in the bodies of
+      these functions are only
+
+        matrixMultMatrix()  --> 5 lines of code
+        matrixMultPoint()   --> 5 lines of code
+        scalarMultMatrix()  --> 1 line of code
+        scalarMultPoint()   --> 4 lines of code
+
+      for a grand total of 15 lines of code.  Easy!
+
+      Depending on how you format your code, you might have more
+      or fewer lines of code than this.  Do get super-concerned
+      unless you find yourself writing zillions of lines of code.
+      If that's the case, you're probably off in the weeds.  Step
+      back and think about it a bit more.
+
+#-----------------------------------------------------------------
